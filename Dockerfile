@@ -1,23 +1,23 @@
-#pulling the python image
+# Use the official Python image as the base image
+FROM python:3.9-slim-buster
 
-FROM python:3.8-alpine
-
-#copy the requirements file into the image
-
-COPY ./requirements.txt /app/requirements.txt
-
-#switch the working directory
+# Set the working directory
 WORKDIR /app
 
-#install your dependencies 
+# Copy the requirements file to the working directory
+COPY requirements.txt .
 
-RUN pip install -r requirements.txt
+# Install the dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-#copy all content from the local path to your working directory
+# Copy the rest of the app to the working directory
+COPY . .
 
-COPY . /app
+# Set the environment variable
+ENV FLASK_APP=app.py
 
-# configure the container to run in an executed manner
-ENTRYPOINT [ "python" ]
+# Expose port 80 for the container
+EXPOSE 80
 
-CMD ["main.py" ]
+# Start the Flask app
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "80"]
