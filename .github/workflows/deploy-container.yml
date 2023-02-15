@@ -1,0 +1,47 @@
+name: Deploy to Azure Container App
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY_SERVER: gabrielcolli.azurecr.io
+  IMAGE_NAME: docker-test
+  IMAGE_TAG: latest
+  AZURE_CONTAINER_APP_NAME: docker-test
+  AZURE_RESOURCE_GROUP: container-testing
+  AZURE_REGION: centralus
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Login to Azure Container Registry
+    - name: Login to Azure Container Registry
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.REGISTRY_SERVER }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    # Build the Docker container image
+    - name: Build the Docker container image
+      run: |
+        docker build -t $REGISTRY_SERVER/$IMAGE_NAME:$IMAGE_TAG .
+
+    # Push the Docker container image to Azure Container Registry
+    - name: Push the Docker container image to Azure Container Registry
+      run: |
+        docker push $REGISTRY_SERVER/$IMAGE_NAME:$IMAGE_TAG
+
+    # Deploy the container to Azure Container App
+    - name: Deploy the container to Azure Container App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: ${{ env.AZURE_CONTAINER_APP_NAME }}
+        images: ${{ env.REGISTRY_SERVER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        resource-group: ${{ env.AZURE_RESOURCE_GROUP }}
+        region: ${{ env.AZURE_REGION }}
