@@ -37,6 +37,8 @@ jobs:
       uses: azure/container-apps-deploy-action@v0
       with:
         acrName: gabrielcolli
+        acrUsername: ${{ secrets.REGISTRY_USERNAME }}
+        acrPassword: ${{ secrets.REGISTRY_PASSWORD }}
         appSourcePath: ${{ github.workspace }}
         imageToBuild: gabrielcolli.azurecr.io/docker-test-container
         containerAppName: dockercontainername
