@@ -23,6 +23,6 @@ ENV FLASK_APP=app.py
 EXPOSE 80
 
 # Start the Flask app and activate the virtual environment
-CMD ["/app/venv/bin/python","flask", "run", "--host", "0.0.0.0", "--port", "80"]
+CMD ["/app/venv/Scripts/activate", "flask", "run", "--host", "0.0.0.0", "--port", "80"]
 
 
