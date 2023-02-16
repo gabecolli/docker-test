@@ -43,5 +43,8 @@ jobs:
         imageToBuild: gabrielcolli.azurecr.io/docker-test-container
         containerAppName: dockercontainername
         resourceGroup: container-testing
+        environmentVariables: |
+          testenvvar=gabeiscool
+          
 
     
