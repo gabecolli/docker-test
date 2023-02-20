@@ -9,8 +9,8 @@ COPY requirements.txt .
 
 # Install the dependencies
 RUN python -m pip install --upgrade pip && \
-    python -m venv /app/venv && \
-    /venv/bin/pip install -r /app/requirements.txt
+    python -m venv /venv && \
+    /venv/bin/pip install -r /requirements.txt
 
 
 # Copy the rest of the app to the working directory
