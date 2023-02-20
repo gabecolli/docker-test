@@ -8,21 +8,15 @@ WORKDIR .
 COPY requirements.txt .
 
 # Install the dependencies
-RUN python -m pip install --upgrade pip && \
-    python -m venv /venv && \
-    /venv/bin/pip install -r /requirements.txt
-
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the app to the working directory
 COPY . .
 
-# Set the environment variable
 ENV FLASK_APP=app.py
-
 # Expose port 80 for the container
 EXPOSE 80
 
-# Start the Flask app and activate the virtual environment
-CMD ["/venv/Scripts/activate", "flask", "run", "--host", "0.0.0.0", "--port", "80"]
-
+# Start the Flask app
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "80"]
 
