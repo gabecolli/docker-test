@@ -2,7 +2,7 @@
 FROM python:3.9-slim-buster
 
 # Set the working directory
-WORKDIR /app
+WORKDIR .
 
 # Copy the requirements file to the working directory
 COPY requirements.txt .
@@ -10,7 +10,7 @@ COPY requirements.txt .
 # Install the dependencies
 RUN python -m pip install --upgrade pip && \
     python -m venv /app/venv && \
-    /app/venv/bin/pip install -r /app/requirements.txt
+    /venv/bin/pip install -r /app/requirements.txt
 
 
 # Copy the rest of the app to the working directory
@@ -23,6 +23,6 @@ ENV FLASK_APP=app.py
 EXPOSE 80
 
 # Start the Flask app and activate the virtual environment
-CMD ["/app/venv/Scripts/activate", "flask", "run", "--host", "0.0.0.0", "--port", "80"]
+CMD ["/venv/Scripts/activate", "flask", "run", "--host", "0.0.0.0", "--port", "80"]
 
 
