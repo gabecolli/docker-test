@@ -1,5 +1,5 @@
 name: 'Azure Container Apps Build and Deploy'
-version: 0
+version: v0
 description: |
   'GitHub Action for building and deploying Azure Container Apps'
 branding:
