@@ -1,5 +1,5 @@
 name: 'Azure Container Apps Build and Deploy'
-version: v0
+
 description: |
   'GitHub Action for building and deploying Azure Container Apps'
 branding:
@@ -379,3 +379,4 @@ runs:
       shell: bash
       run: |
         docker run --rm mcr.microsoft.com/oryx/cli:debian-buster-20230207.2  /bin/bash -c "oryx telemetry --event-name 'ContainerAppsGitHubAction' ${{ env.CA_GH_ACTION_LENGTH_MILLISECONDS_ARG }} ${{ env.CA_GH_ACTION_SCENARIO_ARG }} ${{ env.CA_GH_ACTION_RESULT_ARG }}"
+    version: v0 
