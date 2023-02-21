@@ -32,7 +32,10 @@ jobs:
         login-server: ${{ env.REGISTRY_SERVER }}
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
-    
+     
+     #TODO
+    #created a docker container and need to copy my actions file into the directory of container  
+        
    # - name: Build and deploy Container App
      # uses:  ./.github/actions/action.yml
       #with:
