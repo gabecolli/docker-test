@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - name: Build and deploy Container App
-      uses: azure/container-apps-deploy-action@v1
+      uses: azure/container-apps-deploy-action@v0
       with:
         acrName: gabrielcolli
         acrUsername: ${{ secrets.REGISTRY_USERNAME }}
