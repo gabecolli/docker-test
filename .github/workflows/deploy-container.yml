@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - name: Build and deploy Container App
-      uses: ${{ github.workspace }}/action.yml
+      uses: gabecolli/docker-test/tree/new-test-branch/action.yml@latest
       with:
         acrName: gabrielcolli
         acrUsername: ${{ secrets.REGISTRY_USERNAME }}
