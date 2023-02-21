@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - name: Build and deploy Container App
-      uses: ./home/runner/work/docker-test/docker-test/action.yml
+      uses: ./action.yml
       with:
         acrName: gabrielcolli
         acrUsername: ${{ secrets.REGISTRY_USERNAME }}
