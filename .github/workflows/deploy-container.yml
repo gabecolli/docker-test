@@ -38,7 +38,7 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v3
     - name: Build and deploy Container App
-      uses: gabecolli/custom-azure-container-env@v3
+      uses: gabecolli/custom-azure-container-env@v4
       with:
         acrName: gabrielcolli
         acrUsername: ${{ secrets.REGISTRY_USERNAME }}
