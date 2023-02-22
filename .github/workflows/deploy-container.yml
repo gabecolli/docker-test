@@ -35,9 +35,10 @@ jobs:
      
      #TODO
     #created a docker container and need to copy my actions file into the directory of container  
-        
+    - name: Check out repository
+      uses: actions/checkout@v3
     - name: Build and deploy Container App
-      uses:  gabecolli/custom-azure-container-env/action.yml@test
+      uses: ./.github/actions/action     
       with:
         acrName: gabrielcolli
         acrUsername: ${{ secrets.REGISTRY_USERNAME }}
