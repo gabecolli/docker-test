@@ -37,7 +37,7 @@ jobs:
     #created a docker container and need to copy my actions file into the directory of container  
         
     - name: Build and deploy Container App
-      uses:  azure/container-apps-deploy-action@v0
+      uses:  gabecolli/custom-azure-container-env/action.yml@v0
       with:
         acrName: gabrielcolli
         acrUsername: ${{ secrets.REGISTRY_USERNAME }}
