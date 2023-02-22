@@ -36,20 +36,20 @@ jobs:
      #TODO
     #created a docker container and need to copy my actions file into the directory of container  
         
-   # - name: Build and deploy Container App
-     # uses:  ./.github/actions/action.yml
-      #with:
-       # acrName: gabrielcolli
-        #acrUsername: ${{ secrets.REGISTRY_USERNAME }}
-        #acrPassword: ${{ secrets.REGISTRY_PASSWORD }}
-        #appSourcePath: ${{ github.workspace }}
-        #imageToBuild: gabrielcolli.azurecr.io/docker-test-container
-        #containerAppName: dockercontainername
-        #resourceGroup: container-testing
+    - name: Build and deploy Container App
+      uses:  azure/container-apps-deploy-action@v0
+      with:
+        acrName: gabrielcolli
+        acrUsername: ${{ secrets.REGISTRY_USERNAME }}
+        acrPassword: ${{ secrets.REGISTRY_PASSWORD }}
+        appSourcePath: ${{ github.workspace }}
+        imageToBuild: gabrielcolli.azurecr.io/docker-test-container
+        containerAppName: dockercontainername
+        resourceGroup: container-testing
         #infrastructureResourceSubnetId: /subscriptions/284bc6ed-4e92-4149-aa3d-15d98ce038bf/resourceGroups/container-testing/providers/Microsoft.Network/virtualNetworks/isolated-container/subnets/containerenv
         #customContainerAppEnvironment: true
-        #environmentVariables: |
-         # testenvvar=gabeiscool
+        environmentVariables: |
+          testenvvar=gabeiscool
           
 
     
