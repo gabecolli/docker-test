@@ -47,8 +47,8 @@ jobs:
         imageToBuild: gabrielcolli.azurecr.io/docker-test-container
         containerAppName: dockercontainername
         resourceGroup: container-testing
-        #infrastructureResourceSubnetId: /subscriptions/284bc6ed-4e92-4149-aa3d-15d98ce038bf/resourceGroups/container-testing/providers/Microsoft.Network/virtualNetworks/isolated-container/subnets/containerenv
-        #customContainerAppEnvironment: true
+        infrastructureResourceSubnetId: /subscriptions/284bc6ed-4e92-4149-aa3d-15d98ce038bf/resourceGroups/container-testing/providers/Microsoft.Network/virtualNetworks/isolated-container/subnets/containerenv
+        customContainerAppEnvironment: true
         environmentVariables: |
           testenvvar=gabeiscool
           
