@@ -52,7 +52,7 @@ jobs:
         resourceGroup: container-testing
         customContainerAppEnvironment: false
         environmentVariables: |
-          testenvvar=the deployment was successful
+          testenvvar=the-deployment-was-successful
           
 
     
