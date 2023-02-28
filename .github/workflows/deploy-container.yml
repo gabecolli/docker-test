@@ -50,9 +50,9 @@ jobs:
         subnetName: containerenv
         location: centralus
         resourceGroup: container-testing
-        customContainerAppEnvironment: true
+        customContainerAppEnvironment: false
         environmentVariables: |
-          testenvvar=gabeiscool
+          testenvvar=the deployment was successful
           
 
     
